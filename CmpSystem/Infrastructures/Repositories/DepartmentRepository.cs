@@ -69,4 +69,18 @@ public class DepartmentRepository : IDepartmentRepository
                 "指定された部署Idの部署を取得できませんでした。", e);
         }
     }
+     public void Create(Department department)
+    {
+        try
+        {
+            var entity = _adapter.Convert(department);
+            _context.Departments.Add(entity);
+            _context.SaveChanges();
+        }
+        catch (Exception d)
+        {
+            throw new InternalException(
+                "部署の永続化ができませんでした。", d);
+        }
+    }
 }
