@@ -18,8 +18,8 @@ public interface IDepartmentRepository
     /// <returns>取得して部署</returns>
     Department? FindById(int id);
      /// <summary>
-    /// 従業員を永続化する
+    /// 部署を永続化する
     /// </summary>
-    /// <param name="department">永続化対象の従業員</param>
+    /// <param name="department">部署の従業員</param>
     void Create(Department department);
 }

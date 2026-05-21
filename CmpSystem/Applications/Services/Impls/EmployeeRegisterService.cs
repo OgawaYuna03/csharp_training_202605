@@ -2,8 +2,6 @@ using CmpSystem.Applications.Repositories;
 using CmpSystem.Applications.Domains;
 using CmpSystem.Exceptions;
 using CmpSystem.Infrastructures.Context;
-using CmpSystem.Applications.Services;
-
 namespace CmpSystem.Applications.Services.Impls;
 /// <summary>
 /// 従業員登録サービスインターフェイスの実装

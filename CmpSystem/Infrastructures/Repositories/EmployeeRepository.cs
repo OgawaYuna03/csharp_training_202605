@@ -17,7 +17,7 @@ public class EmployeeRepository : IEmployeeRepository
     /// ドメインモデル:従業員と従業員エンティティの相互変換インターフェイスの実装
     /// </summary>
     private readonly EmployeeEntityAdapter _adapter;
-    
+
     /// <summary>
     /// コンストラクタ
     /// </summary>
@@ -47,4 +47,28 @@ public class EmployeeRepository : IEmployeeRepository
                 "従業員の永続化ができませんでした。", e);
         }
     }
+    /// <summary>
+    /// すべての従業員を取得する
+    /// </summary>
+    /// <returns>従業員のリスト</returns>
+    public List<Employee> FindAll()
+    {
+        try
+        {
+            var entities = _context.Employees.ToList();
+            var results = new List<Employee>();
+            foreach (var entity in entities)
+            {
+                results.Add(_adapter.Restore(entity));
+            }
+            return results;
+        }
+        catch (Exception e)
+        {
+            throw new InternalException(
+                "すべての社員を取得できませんでした。", e);
+        }
+    }
+   
+    
 }

@@ -5,26 +5,16 @@ namespace CmpSystem.Presentations.ViewModels;
 /// <summary>
 /// 部署登録ViewModelクラス
 /// </summary>
-public class EmployeeRegisterViewModel
+public class DepartmentRegisterViewModel
 {
     /// <summary>
-    /// 部署
+    /// 氏名
     /// </summary>
-    [Display(Name = "氏名")]
+    [Display(Name = "新規部署")]
     [Required(ErrorMessage = "{0}は入力必須です。")]
-    public string? Name { get; set; } = string.Empty;
-    /// <summary>
-    /// 所属部署
-    /// </summary>
-    [Display(Name = "所属部署")]
-    [Required(ErrorMessage = "{0}は選択必須です。")]
-    public int? DeptId { get; set; } = 0;
-
-    /// <summary>
-    /// 選択された部署名
-    /// </summary>
-    [Display(Name = "部署名")]
     public string? DeptName { get; set; } = string.Empty;
+    
+
 
     /// <summary>
     /// 部署のリストをSelectListItemのリストに変換してプロパティに設定する
@@ -51,6 +41,6 @@ public class EmployeeRegisterViewModel
 
     public override string ToString()
     {
-        return $"Name={Name} , DeptId={DeptId} , DeptName={DeptName} , Departments={Departments}";
+        return $"DeptName={DeptName} , Departments={Departments}";
     }
 }
