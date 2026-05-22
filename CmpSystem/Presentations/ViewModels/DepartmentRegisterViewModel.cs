@@ -13,7 +13,7 @@ public class DepartmentRegisterViewModel
     [Display(Name = "新規部署")]
     [Required(ErrorMessage = "{0}は入力必須です。")]
     public string? DeptName { get; set; } = string.Empty;
-    
+     public int? DeptId { get; set; } = 0;
 
 
     /// <summary>

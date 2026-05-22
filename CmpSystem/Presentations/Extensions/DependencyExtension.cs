@@ -36,7 +36,7 @@ public static class DependencyExtension
     /// </summary>
     /// <param name="configuration">アプリケーション環境</param>
     /// <param name="services">DIコンテナ</param>
-    private static void SettingEntityFrameworkCore(IConfiguration configuration,  IServiceCollection services)
+    private static void SettingEntityFrameworkCore(IConfiguration configuration, IServiceCollection services)
     {
         // 接続文字列(appsettings.json)から取得
         var connectionString = configuration.GetConnectionString("PostgreSqlConnection");
@@ -69,6 +69,8 @@ public static class DependencyExtension
     {
         // 従業員登録サービスインターフェイスの実装
         services.AddScoped<IEmployeeRegisterService, EmployeeRegisterService>();
+        // 部署登録サービスインターフェイスの実装
+        services.AddScoped<IDepartmentRegisterService, DepartmentRegisterService>();
     }
 
     /// <summary>
@@ -84,6 +86,14 @@ public static class DependencyExtension
         services.AddScoped(
             provider =>
             new TempDataStore<EmployeeRegisterViewModel>("EmployeeRegisterViewModel")
+        );
+        // 部署登録ViewModelをドメインオブジェクト:部署に変換するアダプターインターフェイスの実装
+        services.AddScoped<DepartmentRegisterViewModelAdapter>();
+        // TempDataへのDepartmentRegisterViewの保存・復元するためのクラス
+        // コンストラクタを利用して明示的にDIコンテナにインスタンスを登録する
+        services.AddScoped(
+            provider =>
+            new TempDataStore<DepartmentRegisterViewModel>("DepartmentRegisterViewModel")
         );
     }
 }

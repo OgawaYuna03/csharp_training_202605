@@ -38,21 +38,7 @@ public class DepartmentRegisterService : IDepartmentRegisterService
         _departmentRepository = departmentRepository;
     }
 
-    /// <summary>
-    /// 指定された部署Idの部署を取得する
-    /// </summary>
-    /// <param name="id">部署Id</param>
-    /// <returns></returns>
-    public Department GetById(int id)
-    {
-        var result = _departmentRepository.FindById(id)!;
-        if (result == null)
-        {
-            throw new NotFoundException($"部署Id{id}に該当する部署は存在しません");
-        }
-        return result;
-    }
-
+    
     /// <summary>
     /// すべての部署を取得する
     /// </summary>

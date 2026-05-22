@@ -53,7 +53,7 @@ public class DepartmentRegisterController : Controller
     {
         DepartmentRegisterViewModel? viewModel = null;
         // [戻る]ボタンへの対応
-        // TempDataからEmployeeRegisterViewModelを取得する
+        // TempDataからDepartmentRegisterViewModelを取得する
         viewModel = _dptDataStore.Load(this);
         if (viewModel   == null)
         {
@@ -72,21 +72,17 @@ public class DepartmentRegisterController : Controller
     /// <param name="viewModel"></param>
     /// <returns></returns>
     [HttpPost("Confirm")]
-    public IActionResult Confirm(EmployeeRegisterViewModel viewModel)
+    public IActionResult Confirm(DepartmentRegisterViewModel viewModel)
     {
         // バリデーションチェック
         if (!ModelState.IsValid) // バリデーションエラーあり
         {
             // 部署一覧を取得してViewModelに設定する(SelectListItem形式)
             PopulateDepartments(viewModel);
-            // 入力画面の表示
+            // 入力画面の表示s
             return View("Enter", viewModel);
         }
-        // 選択された部署のIdで部署データを取得する
-        var department = _employeeRegisterService.GetById(viewModel.DeptId ?? 0);
-        _logger.LogInformation($"部署Id:{viewModel.DeptId ?? 0}の部署を取得する");
-        // ViewModelに部署名を設定する
-        viewModel.DeptName = department.Name;
+        
         // 確認画面を表示する
         return View(viewModel);
     }
@@ -97,10 +93,10 @@ public class DepartmentRegisterController : Controller
     /// <param name="form"></param>
     /// <returns></returns>
     [HttpPost("Regiter")]
-    public IActionResult Register(EmployeeRegisterViewModel viewModel)
+    public IActionResult Register(DepartmentRegisterViewModel viewModel)
     {
-        // EmployeeRegisterViewModelをシリアライズして、TempDataに保存する
-        _empDataStore.Save(this, viewModel);
+        // DepartmentRegisterViewModelをシリアライズして、TempDataに保存する
+        _dptDataStore.Save(this, viewModel);
         // 登録処理GETアクションメソッドにリダイレクトする
         return RedirectToAction("Complete");
     }
@@ -113,18 +109,18 @@ public class DepartmentRegisterController : Controller
     [HttpGet("Complete")]
     public IActionResult Complete()
     {
-        EmployeeRegisterViewModel? viewModel = null;
-        // TempDataからEmployeeRegisterViewModelを取得する
-        viewModel = _empDataStore.Load(this);
+        DepartmentRegisterViewModel? viewModel = null;
+        // TempDataからDepartmentRegisterViewModelを取得する
+        viewModel = _dptDataStore.Load(this);
         if (viewModel == null)
         {
             // データが存在しない場合、入力画面にリダイレクト
             return RedirectToAction("Enter");
         }
-        // EmployeeRegisterFormをドメインモデル:Employeeに変換する
-        var employee = _adapter.Restore(viewModel!);
+        // DepartmentRegisterFormをドメインモデル:Departmentに変換する
+        var department = _adapter.Restore(viewModel!);
         // 新しい従業員を登録する
-        _employeeRegisterService.Register(employee);
+        _departmentRegisterService.Register(department);
         return View(viewModel);
     }
 
@@ -133,11 +129,11 @@ public class DepartmentRegisterController : Controller
     /// </summary>
     /// <returns></returns> 
     [HttpPost("Back")]
-    public IActionResult Back(EmployeeRegisterViewModel viewModel)
+    public IActionResult Back(DepartmentRegisterViewModel viewModel)
     {
         _logger.LogInformation("[戻る]ボタンクリック:{0}", viewModel!.ToString());
-        // EmployeeRegisterViewModelをシリアライズして、TempDataに保存する
-        _empDataStore.Save(this, viewModel);
+        // DepartmentRegisterViewModelをシリアライズして、TempDataに保存する
+        _dptDataStore.Save(this, viewModel);
         // 入力画面を出力するアクションメソッドにリダイレクトする
         return RedirectToAction("Enter");
     }
@@ -145,10 +141,10 @@ public class DepartmentRegisterController : Controller
     /// <summary>
     /// 部署一覧を取得してViewModelに設定する(SelectListItem形式)
     /// </summary>
-    private void PopulateDepartments(EmployeeRegisterViewModel viewModel)
+    private void PopulateDepartments(DepartmentRegisterViewModel viewModel)
     {
-        // 従業員登録サービスから部署一覧を取得する
-        var departments = _employeeRegisterService.GetDepartments();
+        // 部署登録サービスから部署一覧を取得する
+        var departments = _departmentRegisterService.GetDepartments();
         // 部署一覧をEmployeeRegisterViewModelに登録する
         viewModel.SetDepartments(departments);
         _logger.LogInformation("部署リストを設定");

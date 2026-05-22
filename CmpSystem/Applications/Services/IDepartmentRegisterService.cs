@@ -12,13 +12,6 @@ public interface IDepartmentRegisterService
     List<Department> GetDepartments();
 
     /// <summary>
-    /// 指定された部署Idの部署を取得する
-    /// </summary>
-    /// <param name="id">部署Id</param>
-    /// <returns></returns>
-    Department GetById(int id);
-
-    /// <summary>
     /// 新しい部署を登録する
     /// </summary>
     /// <param name="department"></param>
