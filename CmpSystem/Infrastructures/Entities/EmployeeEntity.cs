@@ -12,7 +12,7 @@ public class EmployeeEntity
     /// </summary>
     [Key]
     [Column("id")]
-    public int EmpId { get; set; }
+    public int? EmpId { get; set; }
     [Column("name")]
     /// <summary>
     /// 従業員名
@@ -23,4 +23,14 @@ public class EmployeeEntity
     /// </summary>
     [Column("dept_id")]
     public int? DeptId { get; set; }
+     /// <summary>
+    /// 入社年度
+    /// </summary>
+    [Column("join_of_year")]
+    public int? JoinYear { get; set; }
+     /// <summary>
+    /// メールアドレス
+    /// </summary>
+    [Column("email")]
+    public string? Email { get; set; }
 }

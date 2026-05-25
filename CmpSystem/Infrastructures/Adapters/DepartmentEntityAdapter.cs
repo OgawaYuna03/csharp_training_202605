@@ -36,7 +36,7 @@ IConverter<Department, DepartmentEntity>,IRestorer<Department, DepartmentEntity>
     /// <returns>ドメインオブジェクト:Department</returns>
     public Department Restore(DepartmentEntity target)
     {
-        var department = new Department(target.DeptId,target.DeptName!);
+        var department = new Department(target.DeptId,target.DeptName!,target.Chief);
         return department;
     }
 }

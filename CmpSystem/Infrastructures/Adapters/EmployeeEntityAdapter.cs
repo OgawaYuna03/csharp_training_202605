@@ -27,6 +27,12 @@ IConverter<Employee, EmployeeEntity>, IRestorer<Employee, EmployeeEntity>
         {
             entity.DeptId = domain.Department.Id;
         }
+        if (domain.JoinYear != null)
+        {
+            entity.JoinYear = domain.JoinYear.Value;
+        }
+        
+        
         return entity;
     }
 
@@ -40,7 +46,9 @@ IConverter<Employee, EmployeeEntity>, IRestorer<Employee, EmployeeEntity>
         var employee = new Employee(
             target.EmpId,
             target.EmpName,
-            null
+            null,
+            target.JoinYear,
+            target.Email
         );
         return employee;
     }

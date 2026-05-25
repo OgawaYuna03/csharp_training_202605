@@ -11,11 +11,16 @@ public class DepartmentEntity
     /// 部署Id(主キー)
     /// </summary> 
     [Key]
-    [Column("id")]
+    [Column("dept_id")]
     public int DeptId { get; set; }
     /// <summary>
     /// 部署名
     /// </summary> 
-    [Column("name")]
+    [Column("dept_name")]
     public string DeptName { get; set; } = string.Empty;
+    /// <summary>
+    /// 部長名
+    /// </summary> 
+    [Column("chief")]
+    public string? Chief { get; set; }
 }

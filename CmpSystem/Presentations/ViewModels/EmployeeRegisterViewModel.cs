@@ -11,15 +11,27 @@ public class EmployeeRegisterViewModel
     /// 部署
     /// </summary>
     [Display(Name = "氏名")]
-    [Required(ErrorMessage = "{0}は入力必須です。")]
+    [Required(ErrorMessage = "{0}が未入力です")]
     public string? Name { get; set; } = string.Empty;
     /// <summary>
     /// 所属部署
     /// </summary>
     [Display(Name = "所属部署")]
-    [Required(ErrorMessage = "{0}は選択必須です。")]
+    [Required(ErrorMessage = "{0}を選択してください")]
     public int? DeptId { get; set; } = 0;
-
+    /// <summary>
+    /// 入社年度
+    /// </summary>
+    [Display(Name = "入社年度")]
+    [Required(ErrorMessage = "{0}が未入力です")]
+    public int? JoinYear { get; set; }
+    /// <summary>
+    /// 入社年度
+    /// </summary>
+    [Display(Name = "メールアドレス")]
+    [Required(ErrorMessage = "{0}が未入力です")]
+    public string? Email { get; set; } = string.Empty;
+  
     /// <summary>
     /// 選択された部署名
     /// </summary>

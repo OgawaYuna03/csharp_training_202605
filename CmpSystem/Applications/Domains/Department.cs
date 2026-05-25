@@ -8,31 +8,36 @@ public class Department
     public int? Id { get; private set; }      // 部署Id
     public string? Name { get; private set; } = string.Empty;    // 部署名
     private const int MaxLength = 20; // 部署名の長さ
+    public string? Chief { get; private set; } //部長名
     /// <summary>
     /// コンストラクタ
     /// </summary>
     /// <param name="id">部署Id</param>
     /// <param name="name">部署名</param>
-    public Department(int? id, string? name)
+    /// <param name="chief">部長名</param>
+    public Department(int? id, string? name, string? chief)
     {
         // 部署名のルール検証
         validateDepartmentName(name);
         Id = id;
         Name = name;
+        Chief = chief;
     }
     /// <summary>
     /// コンストラクタ
     /// </summary>
     /// <param name="name">部署名</param>
-    public Department(string? name) : this(null, name) { }
+    public Department(string? name) : this(null, name, null) { }
     /// <summary>
     /// コンストラクタ
     /// </summary>
     /// <param name="id">部署Id</param>
+    ///  /// <param name="chief">部長名</param>
     /// <returns></returns>
-    public Department(int? id)
+    public Department(int? id,string? chief)
     {
         Id = id;
+        Chief = chief;
     }
 
     /// <summary>
