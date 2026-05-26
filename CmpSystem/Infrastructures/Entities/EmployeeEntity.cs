@@ -33,4 +33,11 @@ public class EmployeeEntity
     /// </summary>
     [Column("email")]
     public string? Email { get; set; }
+    [ForeignKey("DeptId")]
+    public DepartmentEntity? Department { get; set; }
+
+    public override string? ToString()
+    {
+        return $"従業員Id:{EmpId},従業員名:{EmpName},部署Id{DeptId},入社年度:{JoinYear},メールアドレス:{Email}";
+    }
 }

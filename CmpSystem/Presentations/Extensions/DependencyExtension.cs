@@ -81,6 +81,10 @@ public static class DependencyExtension
     {
         // 従業員登録ViewModelをドメインオブジェクト:従業員に変換するアダプターインターフェイスの実装
         services.AddScoped<EmployeeRegisterViewModelAdapter>();
+        services.AddScoped<DepartmentSearchViewModelAdapter>();
+        services.AddScoped<EmployeeSearchViewModelAdapter>();
+
+
         // TempDataへのEmployeeRegisterViewの保存・復元するためのクラス
         // コンストラクタを利用して明示的にDIコンテナにインスタンスを登録する
         services.AddScoped(

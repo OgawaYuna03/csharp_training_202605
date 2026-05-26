@@ -3,6 +3,8 @@ using CmpSystem.Applications.Domains;
 using CmpSystem.Applications.Repositories;
 using CmpSystem.Infrastructures.Adapters;
 using CmpSystem.Exceptions;
+using CmpSystem.Infrastructures.Entities;
+using Microsoft.EntityFrameworkCore;
 namespace CmpSystem.Infrastructures.Repositories;
 /// <summary>
 /// ドメインオブジェクト:従業員のCRUD操作インターフェイスの実装
@@ -55,11 +57,14 @@ public class EmployeeRepository : IEmployeeRepository
     {
         try
         {
-            var entities = _context.Employees.ToList();
+            var employees = _context.Employees
+            .Include(d =>d.Department)
+            .ToList();
             var results = new List<Employee>();
-            foreach (var entity in entities)
+            foreach (var entity in employees)
             {
-                results.Add(_adapter.Restore(entity));
+                var employee = _adapter.Restore(entity);
+                results.Add(employee);
             }
             return results;
         }
@@ -69,6 +74,7 @@ public class EmployeeRepository : IEmployeeRepository
                 "すべての社員を取得できませんでした。", e);
         }
     }
-   
     
-}
+
+    }
+   

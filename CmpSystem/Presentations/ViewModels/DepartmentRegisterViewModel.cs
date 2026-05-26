@@ -12,6 +12,7 @@ public class DepartmentRegisterViewModel
     /// </summary>
     [Display(Name = "新規部署")]
     [Required(ErrorMessage = "{0}が未入力です")]
+    
     public string? DeptName { get; set; } = string.Empty;
      public int? DeptId { get; set; } = 0;
 

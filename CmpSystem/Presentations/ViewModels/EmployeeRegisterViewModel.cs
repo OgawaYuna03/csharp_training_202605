@@ -1,6 +1,9 @@
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using CmpSystem.Applications.Domains;
+using System.Runtime.CompilerServices;
+using Microsoft.AspNetCore.Authorization.Infrastructure;
+using CmpSystem.Infrastructures.Entities;
 namespace CmpSystem.Presentations.ViewModels;
 /// <summary>
 /// 部署登録ViewModelクラス
@@ -12,7 +15,10 @@ public class EmployeeRegisterViewModel
     /// </summary>
     [Display(Name = "氏名")]
     [Required(ErrorMessage = "{0}が未入力です")]
+    [Range(1, 20)]
     public string? Name { get; set; } = string.Empty;
+
+
     /// <summary>
     /// 所属部署
     /// </summary>
@@ -31,7 +37,7 @@ public class EmployeeRegisterViewModel
     [Display(Name = "メールアドレス")]
     [Required(ErrorMessage = "{0}が未入力です")]
     public string? Email { get; set; } = string.Empty;
-  
+
     /// <summary>
     /// 選択された部署名
     /// </summary>
@@ -58,6 +64,29 @@ public class EmployeeRegisterViewModel
         }
         Departments = selectItems;
     }
+    public List<SelectListItem>? Employees { get; set; } = null;
+
+    /// <summary>
+    /// 従業員のリストをSelectListItemのリストに変換してプロパティに設定する
+    /// </summary>
+    /// <param name="employees"></param>
+    public void SetEmployees(List<EmployeeEntity> employees)
+    {
+        // SelectListItemのリストを作成
+        var selectItems = new List<SelectListItem>();
+        foreach (var emp in employees)
+        {
+            if (emp.EmpId.HasValue)
+            {
+                var item = new SelectListItem();
+                item.Value = emp.EmpId.Value.ToString();
+                item.Text = string.IsNullOrEmpty(emp.EmpName) ? "(名称未設定)" : emp.EmpName;
+                selectItems.Add(item);
+            }
+        }
+        Employees = selectItems;
+    }
+
     // 部署のリスト
     public List<SelectListItem>? Departments { get; set; } = null;
 

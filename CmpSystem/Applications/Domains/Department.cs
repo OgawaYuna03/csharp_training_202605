@@ -18,7 +18,7 @@ public class Department
     public Department(int? id, string? name, string? chief)
     {
         // 部署名のルール検証
-        validateDepartmentName(name);
+        ValidateDepartmentName(name);
         Id = id;
         Name = name;
         Chief = chief;
@@ -44,7 +44,7 @@ public class Department
     /// 部署名のルール検証
     /// </summary>
     /// <param name="name"></param>
-    private void validateDepartmentName(string? name)
+    public void ValidateDepartmentName(string? name)
     {
         if (name is not null)
         {
@@ -62,7 +62,7 @@ public class Department
     public void ChangeName(string? name)
     {
         // 部署名のルール検証
-        validateDepartmentName(name);
+        ValidateDepartmentName(name);
         this.Name = name;
     }
 

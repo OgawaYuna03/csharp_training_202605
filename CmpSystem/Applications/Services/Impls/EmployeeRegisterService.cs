@@ -2,6 +2,8 @@ using CmpSystem.Applications.Repositories;
 using CmpSystem.Applications.Domains;
 using CmpSystem.Exceptions;
 using CmpSystem.Infrastructures.Context;
+using CmpSystem.Infrastructures.Entities;
+
 namespace CmpSystem.Applications.Services.Impls;
 /// <summary>
 /// 従業員登録サービスインターフェイスの実装
@@ -61,7 +63,15 @@ public class EmployeeRegisterService : IEmployeeRegisterService
     {
         return _departmentRepository.FindAll();
     }
-
+    /// <summary>
+    /// すべての部署を取得する
+    /// </summary>
+    /// <returns></returns>
+    public List<Employee> GetEmployees()
+    {
+        return _employeeRepository.FindAll();
+    }
+    
     /// <summary>
     /// 新しい従業員を登録する
     /// </summary>
@@ -84,4 +94,6 @@ public class EmployeeRegisterService : IEmployeeRegisterService
             throw;
         }
     }
+
+    
 }
