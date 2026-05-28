@@ -149,4 +149,6 @@ public class DepartmentRegisterController : Controller
         viewModel.SetDepartments(departments);
         _logger.LogInformation("部署リストを設定");
     }
+
+   
 }

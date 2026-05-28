@@ -15,6 +15,7 @@ public class DepartmentSearchViewModelAdapter : IRestorer<Department, Department
         var viewModel = new DepartmentSearchViewModel();
         viewModel.DeptName = domain.Name;
         viewModel.DeptId = domain.Id;
+        viewModel.Chief = domain.Chief;
 
         return viewModel;
 

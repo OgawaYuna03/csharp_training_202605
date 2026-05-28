@@ -3,20 +3,34 @@
 @* View が受け取るデータ型（ViewModel）を宣言asp-for はこの型のプロパティと結びつける *@
 @model List<EmployeeSearchViewModel> // SampleFormのリストをModelとして受け取る（型を明示）
 @{
-    ViewData["Title"] = "部署一覧";
+    ViewData["Title"] = "従業員一覧";
 }
 <h2 class="text-center mt-4">@ViewData["Title"]</h2>
-@foreach (var employee in Model)
-{
-    <tr>
-        <td>@employee.Name</td />
-        <td>@employee.Email</td >
-        <td>@employee.DeptName</td>
-    </tr>
-}
 <div class="container mt-4">
     <div class="row justify-content-center">
-        <div class="col-md-4 col-sm-6">
+        <table class="text-center table">
+            <tr>
+                <th>氏名</th>
+                <th>部署名</th>
+                <th>入社年度</th>
+                <th>メールアドレス</th><br>
+            </tr>
+            @foreach (var employee in Model)
+            {
+                <tr>
+                    <td>@employee.Name</td>
+                    <td>@employee.DeptName</td>
+                    <td>@employee.JoinYear</td>
+                    <td>@employee.Email</td><br />
+                </tr>
+            }
+        </table>
+        <div class="text-center mt-4">
+            <a asp-action="Index" asp-controller="Home" class="btn btn-primary mt-3">
+                Home
+            </a>
         </div>
+
     </div>
+
 </div>

@@ -83,4 +83,5 @@ public class DepartmentRepository : IDepartmentRepository
                 "部署の永続化ができませんでした。", d);
         }
     }
+    
 }

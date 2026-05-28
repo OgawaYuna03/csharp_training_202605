@@ -22,4 +22,5 @@ public interface IDepartmentRepository
     /// </summary>
     /// <param name="department">部署の従業員</param>
     void Create(Department department);
+   
 }

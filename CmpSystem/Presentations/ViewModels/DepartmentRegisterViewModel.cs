@@ -1,6 +1,9 @@
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using CmpSystem.Applications.Domains;
+using System.Diagnostics;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
 namespace CmpSystem.Presentations.ViewModels;
 /// <summary>
 /// 部署登録ViewModelクラス
@@ -12,9 +15,13 @@ public class DepartmentRegisterViewModel
     /// </summary>
     [Display(Name = "新規部署")]
     [Required(ErrorMessage = "{0}が未入力です")]
-    
+
     public string? DeptName { get; set; } = string.Empty;
-     public int? DeptId { get; set; } = 0;
+    [Display(Name = "部長名")]
+    //[Required(ErrorMessage = "{0}が未入力です")]
+   // [StringLength(30, MinimumLength = 2, ErrorMessage = "{0}は{2}文字以上{1}文字以内で入力してください")]
+    public string? Chief { get; set; } = string.Empty;
+    public int DeptId { get; set; } = 0;
 
 
     /// <summary>

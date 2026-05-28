@@ -8,7 +8,7 @@ namespace CmpSystem.Presentations.Controllers;
 /// <summary>
 /// 部署登録コントローラ
 /// </summary>
-[Route("EmployeeRegister")]
+[Route("EmployeeSearch")]
 public class EmployeeSearchController : Controller
 {
     /// <summary>

@@ -12,5 +12,8 @@ public class DepartmentSearchViewModel
     public string? DeptName { get; set; } = string.Empty;
     [Display(Name = "部署ID")]
     public int? DeptId { get; set; } = 0;
+    [Display(Name = "リーダー")]
+    public string? Chief { get; set; } 
+
 
 }

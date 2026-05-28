@@ -26,6 +26,10 @@ IConverter<Department, DepartmentEntity>,IRestorer<Department, DepartmentEntity>
             // 明示的にValueを使う
             entity.DeptId = domain.Id.Value;
         }
+        if (domain.Chief != null)
+        {
+            entity.Chief = domain.Chief;
+        }
         return entity;
     }
 

@@ -15,7 +15,7 @@ public class EmployeeRegisterViewModel
     /// </summary>
     [Display(Name = "氏名")]
     [Required(ErrorMessage = "{0}が未入力です")]
-    [Range(1, 20)]
+    [StringLength(30,MinimumLength =2,ErrorMessage ="{0}は{2}文字以上{1}文字以内で入力してください")]
     public string? Name { get; set; } = string.Empty;
 
 
@@ -28,14 +28,16 @@ public class EmployeeRegisterViewModel
     /// <summary>
     /// 入社年度
     /// </summary>
-    [Display(Name = "入社年度")]
+    [Display(Name = "入社年度(西暦)")]
     [Required(ErrorMessage = "{0}が未入力です")]
+    [Range(1950,2030,ErrorMessage ="1950~2030で入力してください")]
     public int? JoinYear { get; set; }
     /// <summary>
     /// 入社年度
     /// </summary>
     [Display(Name = "メールアドレス")]
     [Required(ErrorMessage = "{0}が未入力です")]
+    [EmailAddress(ErrorMessage ="メールアドレスの形式で入力してください")]
     public string? Email { get; set; } = string.Empty;
 
     /// <summary>
