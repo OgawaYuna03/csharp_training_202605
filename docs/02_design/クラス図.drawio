@@ -1,6 +1,6 @@
 <mxfile host="Electron">
   <diagram name="ページ-1" id="rqJaUR54SJLkmn4hhZji">
-    <mxGraphModel dx="4201" dy="2316" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="3771" dy="2029" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -145,8 +145,11 @@
         <mxCell id="wTP0tkAtZR3h6oADfEbc-79" parent="wTP0tkAtZR3h6oADfEbc-77" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+Departments:DbSet&amp;lt;Department&amp;gt;" vertex="1">
           <mxGeometry height="26" width="250" y="48" as="geometry" />
         </mxCell>
+        <mxCell id="Lu905V-F3sbUtUNFBTia-2" edge="1" parent="1" source="wTP0tkAtZR3h6oADfEbc-81" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=none;endFill=0;" target="wTP0tkAtZR3h6oADfEbc-71">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="wTP0tkAtZR3h6oADfEbc-81" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#f8cecc;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;strokeColor=#b85450;" value="&lt;b&gt;DepartmentEntity&lt;/b&gt;" vertex="1">
-          <mxGeometry height="100" width="140" x="180" y="93" as="geometry" />
+          <mxGeometry height="100" width="140" x="305" y="140" as="geometry" />
         </mxCell>
         <mxCell id="wTP0tkAtZR3h6oADfEbc-82" parent="wTP0tkAtZR3h6oADfEbc-81" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+DeptId:int?" vertex="1">
           <mxGeometry height="22" width="140" y="26" as="geometry" />
@@ -158,7 +161,7 @@
           <mxGeometry height="26" width="140" y="74" as="geometry" />
         </mxCell>
         <mxCell id="wTP0tkAtZR3h6oADfEbc-85" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#f8cecc;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;strokeColor=#b85450;" value="&lt;b&gt;EmployeeEntity&lt;/b&gt;" vertex="1">
-          <mxGeometry height="130" width="235" x="375" y="80" as="geometry" />
+          <mxGeometry height="130" width="235" x="580" y="920" as="geometry" />
         </mxCell>
         <mxCell id="wTP0tkAtZR3h6oADfEbc-87" parent="wTP0tkAtZR3h6oADfEbc-85" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+EmpId:int?&lt;div&gt;+EmpName:string&lt;/div&gt;&lt;div&gt;+DeptId:int?&lt;/div&gt;&lt;div&gt;+JoinYear:int?&lt;/div&gt;&lt;div&gt;+Email:string?&lt;/div&gt;&lt;div&gt;+Department:DepartmentEntity&lt;/div&gt;" vertex="1">
           <mxGeometry height="104" width="235" y="26" as="geometry" />
@@ -436,6 +439,9 @@
               <mxPoint x="-360" y="588" />
             </Array>
           </mxGeometry>
+        </mxCell>
+        <mxCell id="Lu905V-F3sbUtUNFBTia-1" edge="1" parent="1" source="wTP0tkAtZR3h6oADfEbc-31" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.445;entryY=-0.001;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;" target="wTP0tkAtZR3h6oADfEbc-85">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
